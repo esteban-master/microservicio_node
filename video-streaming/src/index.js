@@ -2,6 +2,15 @@ const express = require("express");
 const fs = require("fs");
 const app = express();
 
+if (!process.env.PORT) {
+  throw new Error("Especificar un numero de puerto");
+}
+
+//
+// Extracts the PORT environment variable.
+//
+const PORT = process.env.PORT;
+
 app.get("/video", (req, res) => {
   const path = "./videos/SampleVideo_1280x720_1mb.mp4";
   fs.stat(path, (err, stats) => {
@@ -22,8 +31,8 @@ app.get("/video", (req, res) => {
 //
 // Starts the HTTP server.
 //
-app.listen(3000, () => {
+app.listen(PORT, () => {
   console.log(
-    `Microservice listening on port ${3000}, point your browser at http://localhost:3000/video`
+    `Microservice listening on port ${PORT}, point your browser at http://localhost:3000/video`
   );
 });

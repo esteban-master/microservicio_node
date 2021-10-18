@@ -1,5 +1,7 @@
 # Ejercicio usando Docker
 
+Ejercicio creando un servidor node como microservicio usando ima imagen de Node js de docker hub
+
 ## Comandos de docker usados
 
 1. Empaquetar y verificar nuestra imagen Dockerfile, correr este comando:
