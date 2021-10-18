@@ -1,6 +1,6 @@
 # Ejercicio usando Docker
 
-Ejercicio creando un servidor node como microservicio usando ima imagen de Node js de docker hub
+Ejercicio creando un servidor node como microservicio usando una imagen de Node js de docker hub
 
 ## Comandos de docker usados
 
