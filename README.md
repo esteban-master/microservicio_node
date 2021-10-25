@@ -1,6 +1,8 @@
 # Ejercicio usando Docker Compose
 
-Ejercicio usando docker compose para crear una aplicacion compuesta por varios contenedores, creando varios microservicios
+Ejercicio usando docker compose para crear una aplicacion compuesta por varios contenedores, creando varios microservicios.
+
+Debemos colocar cada microservicio en su propio subdirectorio separado. Nuestra convención será que cada subdirectorio lleve el nombre de su microservicio.
 
 ## Comandos de docker-compose usados
 

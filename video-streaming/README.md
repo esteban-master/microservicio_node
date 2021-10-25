@@ -6,7 +6,7 @@ Ejercicio creando un servidor node como microservicio usando una imagen de Node 
 
 1. Empaquetar y verificar nuestra imagen Dockerfile, correr este comando:
 
-```docker
+```bash
 docker build -t video-streaming --file Dockerfile .
 ```
 
@@ -18,7 +18,7 @@ El **--file** argumento especifica el nombre del Dockerfile que se utilizará. T
 
 2. Arrancar nuestro microservicio en un contenedor
 
-```docker
+```bash
 docker run -d -p 3000:3000 video-streaming
 ```
 
@@ -30,7 +30,7 @@ El último argumento, **video-streaming**, es el nombre que le dimos a nuestra i
 
 3. Registrando logs del microservicio del contenedor corriendo
 
-```docker
+```bash
  docker logs <container-id>
 ```
 
@@ -38,19 +38,19 @@ El último argumento, **video-streaming**, es el nombre que le dimos a nuestra i
 
 Hacer login si no lo hemos hecho:
 
-```docker
+```bash
 docker login <registro-url> --username <my-username> --password <my-password>
 ```
 
 Tagear nuestra imagen, antes de publicar nuestra imagen en el registro, debemos decirle a Docker dónde se está insertando la imagen. Hacemos esto etiquetando la imagen con la URL del registro con el comando docker tag como sigue:
 
-```docker
+```bash
 docker tag video-streaming estebanmaster/video-streaming:latest
 ```
 
 El comando anterior se ve asi:
 
-```docker
+```bash
 docker tag <imagen-existente> <registry-url>/<image-name>:<version>
 ```
 
@@ -58,13 +58,13 @@ Estamos etiquetando en este caso, solo porque queremos enviarlo a nuestro regist
 
 Empujar nuestra imagen al registro:
 
-```docker
+```bash
   docker push estebanmaster/video-streaming:latest
 ```
 
 El comando anterior se ve asi:
 
-```docker
+```bash
   docker push <registry-url>/<image-name>:<version>
 ```
 
@@ -76,13 +76,13 @@ En su lugar, queremos probar que podemos extraer la imagen del registro remoto. 
 
 Listar contenedores corriendo y detenidos:
 
-```docker
+```bash
   docker container ls -a
 ```
 
 Ahora detener y eliminar contendedor
 
-```docker
+```bash
   docker kill <container-id>
   docker rm <container-id>
 ```
@@ -91,7 +91,7 @@ Invocar **docker image list**. Podemos ver al menos tres imágenes en la lista. 
 
 Tenga en cuenta que ambas versiones etiquetadas de nuestra imagen tienen el mismo ID de imagen, y en realidad son la misma imagen a la que se hace referencia varias veces. Podemos eliminar ambos invocando el comando:
 
-```docker
+```bash
   docker rmi <image-id> --force
 ```
 
@@ -101,13 +101,13 @@ Después de eliminar la imagen, invocar **docker image list -a** nuevamente para
 
 6. Ejecutando un contenedor directamente desde el registo donde se subio la imagen
 
-```docker
+```bash
   docker run -d -p <host-port>:<container-port> <registry-url>/<image-name>:<version>
 ```
 
 En este caso asi:
 
-```docker
+```bash
   docker run -d -p 3000:3000 estebanmaster/video-streaming:latest
 ```
 
